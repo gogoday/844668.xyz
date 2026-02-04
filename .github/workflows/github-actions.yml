@@ -6,7 +6,7 @@ env:
   # 定义输出目录，方便统一维护
   OUTPUT_DIR: dist
   DEPLOY_DIR: /data/844668.xyz
-  DIST_TAR_FILE: 844668.vue3.${{ date +%Y%m%d%H%M%S }}.tar
+  DIST_TAR_FILE: 844668.vue3.tar
 
 
 on:
