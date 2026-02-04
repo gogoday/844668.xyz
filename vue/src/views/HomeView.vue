@@ -41,7 +41,7 @@ watch(originJSONString, (origin) => {
       <div>字符串：</div>
       <textarea
         v-model="originJSONString"
-        class="w-100% min-h-400px border border-solid border-[#767676] rounded-3px p-2px"
+        class="w-100% h-[calc(100% - 2rem)] min-h-400px border border-solid border-[#767676] rounded-3px p-2px"
         name="origin"
         id="origin"
       ></textarea>
