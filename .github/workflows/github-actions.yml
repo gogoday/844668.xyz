@@ -1,7 +1,6 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 env:
-  PIGDIG_KEY: ${{ secrets.PIGDIG_KEY }}
   # 定义输出目录，方便统一维护
   OUTPUT_DIR: dist
   DEPLOY_DIR: /data/844668.xyz
@@ -40,7 +39,7 @@ jobs:
           remote: /data/
           port: 22
           user: root
-          key: ${{ env.PIGDIG_KEY }}
+          key: ${{ secrets.PIGDIG_KEY }}
           # 优化部署命令：先备份、清空目标目录、解压、重启并检查服务状态
           cmd: |
             cd /data/ && \
@@ -49,7 +48,7 @@ jobs:
             # 创建目标目录（确保存在）
             mkdir -p ${{ env.DEPLOY_DIR }} && \
             # 解压新产物（覆盖旧文件）
-            tar xzvf ${{ env.DIST_TAR_FILE }} -C ${{ env.DEPLOY_DIR }} && \
+            tar xvf ${{ env.DIST_TAR_FILE }} -C ${{ env.DEPLOY_DIR }} && \
             echo "=== Unpack completed ===" && \
             ls -la ${{ env.DEPLOY_DIR }}
       - run: echo "🍏 This job's status is ${{ job.status }}. ${{ matrix.node-version }}"
