@@ -1,3 +1,4 @@
+import { calcMaxWidthBySize } from '@unocss/rule-utils'
 import { defineConfig, presetAttributify, presetWind4 } from 'unocss'
 
 export default defineConfig({
@@ -9,4 +10,8 @@ export default defineConfig({
     presetWind4(),
     // ...custom presets
   ],
+  rules: [
+    ['wsf-h-100-2', { height: 'calc(100% - 2rem)' }]
+  ],
+
 })
